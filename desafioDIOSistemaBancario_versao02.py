@@ -85,7 +85,7 @@ def ExibirExtrato(saldo, /, *, extrato):
 def EfetuarSaque(*, saldo, valor, extrato, limite, nro_saques, limite_saques):
     excedeu_saldo = valor > saldo
     excedeu_limite = valor > limite
-    excedeu_saques = nro_saques > limite_saques
+    excedeu_saques = nro_saques >= limite_saques
 
     if excedeu_saldo:
         print("Saque não realizado. Saldo insuficiente!")
@@ -106,7 +106,7 @@ def EfetuarSaque(*, saldo, valor, extrato, limite, nro_saques, limite_saques):
     else:
         print("Saque nao realizado. Valor informado inválido!")
     
-    return saldo, extrato
+    return saldo, extrato, nro_saques
 
 def main():
     saldo = 0
@@ -125,16 +125,18 @@ def main():
             print("Realizar depósito")
             valorDeposito = float(input("Informe o valor a ser depositado: "))
             saldo, extrato = Depositar(saldo, valorDeposito, extrato)
+
         elif opcao == "S":
             print("Realizar saque")
             valorSacado = float(input("Informe o valor a ser sacado: "))
-            saldo, extrato = EfetuarSaque(saldo = saldo,
+            saldo, extrato, nro_saques = EfetuarSaque(saldo = saldo,
                                           valor = valorSacado, 
                                           extrato = extrato,
                                           limite = limite,
                                           nro_saques = nro_saques,
                                           limite_saques = LIMITE_SAQUES,
                                           )
+            
         elif opcao == "E":
             ExibirExtrato(saldo, extrato = extrato)
 
