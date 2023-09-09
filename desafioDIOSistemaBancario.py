@@ -36,10 +36,9 @@ while True:
         while numero_saques < LIMITE_SAQUES:
             print("Realizar saque")
             valorSacado = float(input("Informe o valor a ser sacado: "))
-            while valorSacado > saldo or valorSacado > 500:
+            while valorSacado > saldo or valorSacado >= 500:
                 print("Saque não permitido. Valor acima do saldo na conta ou acima do limite de R$ 500,00!")
                 valorSacado = float(input("Informe o valor a ser sacado: "))
-        
             saldoAnterior = saldo
             saldo -= valorSacado
             entradaExtrato = f"""
