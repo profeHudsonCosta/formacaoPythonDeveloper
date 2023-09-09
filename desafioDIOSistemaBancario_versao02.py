@@ -41,7 +41,7 @@ def AbrirConta(agencia, nro_conta, clientes):
 
     if cliente:
         print("Conta aberta com sucesso!")
-        return {"agencia": agencia, "nro_conta":nro_conta, "cliente":cliente}
+        return {"agencia": agencia, "nro_conta":nro_conta, "cliente":cliente,}
     
     print("Cliente não localizado. Conta não pode ser aberta!")
 
