@@ -55,7 +55,7 @@ def ListarContas(contas):
         linha = f"""
             Agência:\t{conta['agencia']}
             C/C: \t\t{conta['nro_conta']}
-            Titular:\t{conta['cliente']}
+            Titular:\t{conta['cliente'][f"{nome}" for cliente in clientes]}
         """
         print("*" * 100)
         print(textwrap.dedent(linha))
