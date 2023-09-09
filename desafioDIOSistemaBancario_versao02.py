@@ -85,7 +85,7 @@ def ExibirExtrato(saldo, /, *, extrato):
 def EfetuarSaque(*, saldo, valor, extrato, limite, nro_saques, limite_saques):
     excedeu_saldo = valor > saldo
     excedeu_limite = valor > limite
-    excedeu_saques = nro_saques >= limite_saques
+    excedeu_saques = nro_saques > limite_saques
 
     if excedeu_saldo:
         print("Saque não realizado. Saldo insuficiente!")
